@@ -1,26 +1,43 @@
 /*
- * The following code needs a lot of TLC. So give it some!
- *
- * 1. Fix all checkstyle errors
- * 2. Determine what it does (it's going to be tough before you finish #1)
- * 3. Improve the name of the methods and variables
- * 4. Add comments and Javadoc comments where needed
- * 5. Remove unnecessary comments as appropriate
+ * The following code needs a lot of TLC. So give it some! 1. Fix all checkstyle errors 2. Determine
+ * what it does (it's going to be tough before you finish #1) 3. Improve the name of the methods and
+ * variables 4. Add comments and Javadoc comments where needed 5. Remove unnecessary comments as
+ * appropriate
  */
 
-public class ReclamationProject
-{
-    static String doit(String a,String b){
-        if (a.length() > b.length()){
-            String c = a; // TODO: set c to a
-            a=b; b=c;}
-        String r = (a.equals(b)) ? "" : ""; // I love the ternary operator!
-        /*
-         * For loop with i
-         */
-        for (int i = 0; i < a.length(); i++) { for (int j = a.length() - i; j > 0; j--) {
-                for (int k = 0; k < b.length()- j; k++) {
-                    r = (a.regionMatches(i, b, k, j) && j >r.length()) ? a.substring(i,i + j) : r; // Do it!
-                        }} // Ah yeah
-        } return r; }
+/**
+ *
+ */
+public class ReclamationProject {
+    /**
+     * @param a some string value.
+     * @param b some string value.
+     * @return r return string.
+     */
+    public static String doIt(final String a, final String b) {
+        // gets rid of final parameter variable by assigning to local variable
+        String s1 = a;
+        String s2 = b;
+
+     // if s1 is longer than s2, switch values
+        if (s1.length() > s2.length()) {
+            String temp = s1;
+            s1 = s2;
+            s2 = temp;
+        }
+        String r = "";
+
+        // while i is less than the length of s1
+        for (int i = 0; i < s1.length(); i++) {
+            // j = length of string, decrements backwards
+            for (int j = s1.length() - i; j > 0; j--) {
+                for (int k = 0; k < s2.length() - j; k++) {
+                    if (s1.regionMatches(i, s2, k, j) && j > r.length()) {
+                        r = s1.substring(i, i + j);
+                    }
+                }
+            }
+        }
+        return r;
+    }
 }
