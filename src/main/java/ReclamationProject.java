@@ -10,9 +10,10 @@
  */
 public class ReclamationProject {
     /**
+     * Finds the longest common substring
      * @param a some string value.
      * @param b some string value.
-     * @return r return string.
+     * @return r returns longest common substring.
      */
     public static String doIt(final String a, final String b) {
         // gets rid of final parameter variable by assigning to local variable
@@ -27,10 +28,11 @@ public class ReclamationProject {
         }
         String r = "";
 
-        // while i is less than the length of s1
+        // while i is less than the length of s1, increments i
         for (int i = 0; i < s1.length(); i++) {
             // j = length of string, decrements backwards
             for (int j = s1.length() - i; j > 0; j--) {
+                // while k is shorter than length of s2 - j
                 for (int k = 0; k < s2.length() - j; k++) {
                     if (s1.regionMatches(i, s2, k, j) && j > r.length()) {
                         r = s1.substring(i, i + j);
